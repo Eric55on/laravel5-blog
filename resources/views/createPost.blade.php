@@ -12,14 +12,15 @@
 					<h3>Post</h3>
 				</div>
 				<div class="box-body">
-					{!! Form::model($post, array( 'method' => 'PUT', 'route' => array('posts.update', $post->id)) ) !!}
-						<div class="form-group">
+					{!! Form::open( [ 'route' => 'posts.store' ] ) !!}
+          {!!  Form::hidden('user_id', Auth::user()->id) !!}
+            <div class="form-group">
 							{!! Form::label('title', 'T&iacute;tulo') !!}
-					    	{!! Form::text('title', $post->title, ['class' => 'form-control']) !!}
+					    	{!! Form::text('title', '', ['class' => 'form-control']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('title', 'Entrada') !!}
-					    	{!! Form::textarea('description', $post->description, ['class' => 'textarea', 'placeholder' => 'Ingrese entrada...', 'style' => 'width: 810px; height: 200px;']); !!}
+					    	{!! Form::textarea('description', '', ['class' => 'textarea', 'placeholder' => 'Ingrese entrada...', 'style' => 'width: 810px; height: 200px;']); !!}
 					    </div>
 					    <div class="form-group">
 					    	{!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
